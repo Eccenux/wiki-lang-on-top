@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Responsive Viewport.
 // @namespace    pl.enux.wiki
-// @version      1.0.0
+// @version      1.0.1
 // @description  Adds true responsivness to wikis (flexible/mobile view).
 // @author       Maciej Nux Jaros
 // @match        https://*.wikipedia.org/*
@@ -26,6 +26,7 @@
 	let bodyClasses = document.body.classList;
 	if (!bodyClasses.contains('mw-special-ContentTranslation') && bodyClasses.contains('skin--responsive')) {
 		const meta = document.createElement('meta');
+        meta.id = 'enux-respo-vw'
 		meta.name = 'viewport';
 		meta.content = 'width=device-width, initial-scale=1.0';
 		document.head.appendChild(meta);

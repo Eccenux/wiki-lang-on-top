@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Responsive Viewport.
 // @namespace    pl.enux.wiki
-// @version      1.0.0
+// @version      1.0.1
 // @description  Adds true responsivness to wikis (flexible/mobile view).
 // @author       Maciej Nux Jaros
 // @match        https://*.wikipedia.org/*
