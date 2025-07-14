@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
 // @name         Lang on top.
 // @namespace    pl.enux.wiki
-// @version      1.1.0
+// @version      1.1.1
 // @description  Put language switch on top bar (e.g. fixed header).
 // @author       Maciej Nux Jaros
 // @match        https://*.wikipedia.org/*
