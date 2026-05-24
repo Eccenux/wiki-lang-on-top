@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Responsive Viewport.
 // @namespace    pl.enux.wiki
-// @version      1.0.2
+// @version      1.1.0
 // @description  Adds true responsivness to wikis (flexible/mobile view).
 // @author       Maciej Nux Jaros
 // @match        https://*.wikipedia.org/*
@@ -24,10 +24,20 @@
 	// true responsivness (flexible/mobile view)
 	let bodyClasses = document.body.classList;
 	if (!bodyClasses.contains('mw-special-ContentTranslation') && bodyClasses.contains('skin--responsive')) {
-		const meta = document.createElement('meta');
-        meta.id = 'enux-respo-vw'
-		meta.name = 'viewport';
-		meta.content = 'width=device-width, initial-scale=1.0';
+		
+		// remove if exists
+		let viewport = document.querySelector( 'meta[name="viewport"]' );
+		if ( viewport ) {
+			viewport.remove();
+		}
+
+		let meta = Object.assign(document.createElement('meta'), { 
+			id: 'enux-respo-vw',
+			name: 'viewport',
+			content: 'width=device-width, initial-scale=1.0',
+		});
 		document.head.appendChild(meta);
 	}
+
+	// See also: https://meta.wikimedia.org/wiki/User:Hakimi97/responsiveVector2022.js
 }())
