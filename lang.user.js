@@ -1,8 +1,8 @@
 ﻿// ==UserScript==
 // @name         Lang on top.
 // @namespace    pl.enux.wiki
-// @version      1.1.1
-// @description  Put language switch on top bar (e.g. fixed header).
+// @version      1.2.0
+// @description  Put language switch on top bar (e.g. fixed header) + ToC on small screen.
 // @author       Maciej Nux Jaros
 // @match        https://*.wikipedia.org/*
 // @match        https://*.wiktionary.org/*
@@ -20,6 +20,18 @@
 	let isMobile = /[a-z]+\.m\./.test(location.hostname);
 	if (isMobile) {
 		return;
+	}
+	
+	// move ToC
+	const isSmallViewport = window.innerWidth <= 639;
+	if (isSmallViewport) {
+		// add ToC before the top search button
+		let ma = document.querySelector('.vector-header-end');
+		let toc = document.querySelector('#content .vector-toc-landmark');
+		if (ma && toc) {
+			ma.prepend(toc);
+			toc.style.display = 'block';
+		}
 	}
 
 	// add lang to top if available
@@ -51,6 +63,11 @@
 	#p-lang-btn .vector-menu-heading.mw-ui-progressive.mw-ui-quiet::after {
 		background-image: url(/w/skins/Vector/resources/common/images/arrow-down-progressive.svg?f0b59);
 		opacity: 1;
+	}
+	@media (min-width: 1120px) {
+		.vector-header-end .vector-toc-landmark {
+			display: none !important;
+		}
 	}
 	`;
 	

@@ -1,8 +1,8 @@
 ﻿// ==UserScript==
 // @name         Lang on top.
 // @namespace    pl.enux.wiki
-// @version      1.1.1
-// @description  Put language switch on top bar (e.g. fixed header).
+// @version      1.2.0
+// @description  Put language switch on top bar (e.g. fixed header) + ToC on small screen.
 // @author       Maciej Nux Jaros
 // @match        https://*.wikipedia.org/*
 // @match        https://*.wiktionary.org/*
